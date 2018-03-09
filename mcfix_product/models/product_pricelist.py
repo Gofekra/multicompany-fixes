@@ -12,6 +12,11 @@ class Pricelist(models.Model):
         res = self.add_company_suffix(names)
         return res
 
+    @api.constrains('company_id')
+    def _check_company_id_out_model(self):
+        """To be used by other modules"""
+        pass
+
 
 class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"
